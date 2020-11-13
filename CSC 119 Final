@@ -1,0 +1,48 @@
+# Mike McFadden
+# CSC 119
+# Apr. 20, 2020
+# Semester Final Project: Dice Game
+
+mash = input ("What is your gamertag?: ")
+print ("Hello,",mash)
+print ("Objective of this game is for the player to roll dice and get a score of EXACTLY 30 points. You must choose the score of one  of the dice or the total of the two dice. This value is added  to your player score. If your score goes over 30, the score is  reset and you continue to roll and choose. You win when you     accumulate a score of exactly 30.")
+print ("Let's go,", mash)
+
+import random
+
+score = 0
+print("Score is: "+str(score)+"\n")
+count = 0
+reset = 0
+
+while score != 30:
+  dice1=int(random.random()*6+1)
+  dice2=int(random.random()*6+1)
+  print("You rolled "+str(dice1)+" and "+str(dice2))
+  print ("You now have to pick the first roll, second roll, or add the two for a total. Please pick option A, B, or C")
+  pick = input()
+  if 'A' in pick:
+    print("New score is: ", (score + dice1))
+    score += dice1  
+  if 'B' in pick:
+    print("New score is: ", (score + dice2))
+    score += dice2
+  if 'C' in pick:
+      score += dice1+dice2
+      print("New score is: "+str(score))
+  if (score==30):
+          print("Congrats! You won,", mash)
+  elif (score>30):
+    print("Whoops try again,", mash)
+    score=0
+  count += 1
+  if (score==0):
+    reset += 1
+ 
+  print("------------------------------------------------------")
+  
+
+print ("Total number of rolls: ", count)
+print ("Total number of resets: ", reset)
+
+#
