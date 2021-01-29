@@ -1,0 +1,22 @@
+// Mike McFadden
+// Jan. 27, 2021
+// CSC 161 
+// Lab 1
+
+import java.util.Scanner; // import scanner class
+
+public class PhoneFormat {
+    public static void main(String[] args) {
+        boolean flag; // boolean flag is a boolean variable that signals when a condition exists in a program
+        Scanner sc = new Scanner(System.in); // creates a scanner 
+        do {
+            String phonePattern= "((\\(\\d{3}\\))|\\d{3})[-]?\\d{3}[-]?\\d{4}"; // validates the format we want
+            System.out.print("Enter a phone number in the format of (555)-555-5555: "); //asks for user input
+            String input = sc.next();
+            flag = input.matches(phonePattern);
+            if (!flag) System.out.println("Bad Format for Phone number"); 
+        } while (!flag);
+        System.out.println("Valid Phone Number");
+    }
+}
+
